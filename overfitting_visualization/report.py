@@ -141,13 +141,16 @@ alt_pred_chart = (
 alt_pred_chart + alt_chart | legend
 # %%
 dp.Report(
-    dp.Group(
         dp.Plot(
             alt_pred_chart + alt_chart | legend,
             name="linear_regression_with_PolynomialFeatures",
         ),
-        dp.Plot(alt_score_chart, name="R2ScoreComparison"),
-        columns=2,
+#        dp.Plot(alt_score_chart, name="R2ScoreComparison")
+).publish(name="interactive report to visualize overfitting linear_regression_with_PolynomialFeatures")
+
+dp.Report(
+    dp.Plot(
+        alt_score_chart, name="R2ScoreComparison"
     )
-).publish(name="interactive report to visualize overfitting")
+).publish(name="interactive report to visualize overfitting R2ScoreComparison")
 # %%
